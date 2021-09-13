@@ -1,6 +1,6 @@
 "use strict";
 
-var crypto = require("crypto");
+var crypto = require("crypto"); //natuve library already exists in node
 
 // The Power of a Smile
 // by Tupac Shakur
@@ -15,7 +15,7 @@ var poem = [
 	"especially yours can heal a frozen heart",
 ];
 
-var Blockchain = {
+var Blockchain = { //created onject
 	blocks: [],
 };
 
@@ -28,16 +28,49 @@ Blockchain.blocks.push({
 });
 
 // TODO: insert each line into blockchain
-// for (let line of poem) {
-// }
 
+
+//create for loop , then when we use line let poem goes through poem
+for (let line of poem) {
+	createBlock(line)
+
+}
+
+//'index'
+//'previous hash'
+//'data' - poetry
+//'time stamp' 
+//'hash'
+
+//create a function called createblock()
+function createBlock(data) {
+	let block = {
+		index: Blockchain.blocks.length, //index
+		prevHash: Blockchain.blocks[Blockchain.blocks.
+			length - 1].hash,
+		data: _data,
+		timestamp: Date.now()
+	}
+	block.hash = blockHash(block)
+	Blockchain.blocks.push(block)
+	console.log(block)
+	return block
+
+
+
+}
 // console.log(`Blockchain is valid: ${verifyChain(Blockchain)}`);
 
 
 // **********************************
 
-function blockHash(bl) {
+function blockHash(bl) { //bl is short for block - refrence bl to access features in block
 	return crypto.createHash("sha256").update(
 		// TODO: use block data to calculate hash
+		`${bl.index};${bl.prevHash};${bl.data};${bl.
+			timestamp};`
+
+
+
 	).digest("hex");
 }
