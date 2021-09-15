@@ -35,6 +35,7 @@ for (let line of poem) {
 	createBlock(line)
 
 }
+// console.log(`Blockchain is valid: ${verifyChain(Blockchain)}`);
 
 //'index'
 //'previous hash'
@@ -59,7 +60,7 @@ function createBlock(data) {
 
 
 }
-// console.log(`Blockchain is valid: ${verifyChain(Blockchain)}`);
+
 
 
 // **********************************
@@ -74,3 +75,4 @@ function blockHash(bl) { //bl is short for block - refrence bl to access feature
 
 	).digest("hex");
 }
+
